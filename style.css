@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap'); 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: normal 16px/1.5 "Titillium Web", sans-serif;
+  
+  color: #3c3f64;
+  overflow-x: hidden;
+  padding-bottom: 50px;
+}
+
+.home{
+  position: relative;
+  width: 100%;
+  height:100vh;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 70px 10% 0;
+  background-color: #05609d;
+  margin-bottom: 5rem;
+}
+
+.home-content{
+  max-width: 600px;
+}
+
+.home-content h2{
+  margin-bottom: 5rem;
+  font-size: 56px;
+  font-weight: 700;
+  opacity: 0;
+  animation: slideLeft 1s ease forwards;
+  animation-delay: 1s;
+  letter-spacing: 1px;
+  color: #fff;
+}
+.home-content p{
+  font-size: 20px;
+  color: #fff;
+  text-align: left;
+}
+.home-img img{
+  max-width: 425px;
+  margin-right: -20px;
+  opacity:0;
+  font-size: 5rem;
+  animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+  animation-delay: 2s,3s;
+  box-shadow:0 0 30px #73928d;
+  border-radius: 50%;
+}
+
+
+.timeline ul li {
+  list-style-type: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 60px; /* Increased distance between line and card */
+  background: #131111;
+}
+
+.timeline ul li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) rotate(45deg);
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  background: #8f8888;
+}
+
+.timeline ul li div {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 4px 13px 30px 1px rgba(44, 111, 244, 0.2);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.timeline img {
+  max-width: 250px;
+  font-size: 5rem;
+}
+.img4{
+ 
+  height: 15rem;
+  width:15rem ;
+}
+
+.timeline ul li div time {
+  position: absolute;
+  background: #f5af19;
+  width: 80px;
+  height: 30px;
+  top: -15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+}
+
+.timeline ul li div div {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline ul li div div p {
+  text-align: center;
+}
+
+.timeline ul li div .discovery {
+  margin-right: 10px;
+}
+
+.timeline ul li:nth-of-type(odd) > div {
+  left: 45px;
+}
+
+.timeline ul li:nth-of-type(even) > div {
+  left: -640px; /* Adjust this value to increase/decrease distance */
+}
+
+.timeline ul li div {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.timeline ul li:nth-of-type(odd) div {
+  transform: translate3d(100px, -10px, 0) rotate(10deg);
+}
+
+.timeline ul li:nth-of-type(even) div {
+  transform: translate3d(-100px, -10px, 0) rotate(10deg);
+}
+
+.timeline ul li.in-view div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+  width: 600px;
+}
+
+@keyframes zoomIn{
+  0%{
+      transform: scale(0);
+      opacity:0;
+  }
+  100%{
+      transform: scale(1);
+      opacity:1;
+  }
+}
+@keyframes floatImage{
+  0%{
+      transform: translateY(0);
+  }
+  50%{
+      transform: translateY(-24px);
+  }
+  100%{
+      transform: translateY(0);
+  }
+
+}
+@keyframes slideLeft{
+  0%{
+      transform: translateX(100px);
+      opacity:0;
+  }
+  100%{
+      transform: translateX(0);
+      opacity:1;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .timeline ul li div {
+    width: 250px;
+    flex-direction: column;
+  }
+
+  .timeline ul li div div {
+    width: 80%;
+    margin: 10px;
+  }
+
+  .timeline ul li:nth-of-type(even) > div {
+    left: -289px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  *,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing:unset;
+}
+
+  .timeline ul li.in-view div{
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+    width:20rem;
+}
+  .timeline ul li:nth-of-type(even) > div {
+    left: 0px;
+  }
+
+  .home {
+    flex-direction: column;
+    height: auto; 
+    width: 110%;
+    margin-bottom: 5rem;
+    padding: 30px 10%; 
+  }
+
+  .home-content,
+  .home-img {
+    text-align: center;
+  }
+
+  .home-img img {
+    max-width: 100%;
+    margin-right: -10px;
+    opacity: 0;
+    font-size: 5rem;
+    animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+    animation-delay: 2s, 3s;
+    box-shadow: 0 0 30px #28ABB9;
+    border-radius: 50%;
+    margin-bottom: 4rem;
+  }
+
+  .home-content h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin: -3px 0;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+    letter-spacing: 1px;
+    margin-bottom: 5rem;
+  }
+
+  .home-content p {
+    font-size: 16px;
+    margin-bottom: 5rem;
+  }
+
+  .timeline ul li {
+    margin-left: 20px;
+  }
+
+  .timeline ul li div {
+    width: calc(100% - 40px); 
+    margin-left: 20px;
+    max-width: 400px; 
+  }
+}
