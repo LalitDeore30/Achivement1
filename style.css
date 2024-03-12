@@ -224,13 +224,13 @@ body {
     width:20rem;
 }
   .timeline ul li:nth-of-type(even) > div {
-    left: 0px;
+    left: 45px;
   }
 
   .home {
     flex-direction: column;
     height: auto; 
-    width: 110%;
+    width: 120%;
     margin-bottom: 5rem;
     padding: 30px 10%; 
   }
